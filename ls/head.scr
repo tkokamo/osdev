@@ -1,0 +1,10 @@
+OUTPUT_FORMAT("binary");
+BASE = 0x8200;
+
+SECTIONS {
+	. = BASE;
+	.text : {*(.text)}
+	.data : {*(.data)}
+	. = BASE + 512;
+	.sign : {SHORT(0x0000)}
+}
