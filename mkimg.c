@@ -8,6 +8,7 @@
 int main()
 {
 	char str[2];
+	char ff[512];;
 	int fd;
 
 	fd = open("start.bin", O_RDWR, 0644);
@@ -16,5 +17,7 @@ int main()
 	str[0] = 0x55;
 	str[1] = 0xaa;
 	write(fd, str, 2);
+	memset(ff, 0xff, 512);
+	write(fd, ff, 512);
 	close(fd);
 }
